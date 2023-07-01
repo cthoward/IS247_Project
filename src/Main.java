@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         boolean morn;
         Menu a = new Menu();
-        Receipt b = new Receipt();
+        Receipt b;
 
         try{
             morn = a.mornCheck();
@@ -52,7 +52,7 @@ public class Main {
             String order = requestOrder(num);
             if(order.equalsIgnoreCase("done")){
                 move = true;
-            }else if(order.equalsIgnoreCase("invalid")){}else{
+            }else if(!order.equalsIgnoreCase("invalid")){
                 String[] j = order.split(" ");
                 int key = Integer.parseInt(j[0]);
                 int count = Integer.parseInt(j[1]);
@@ -75,15 +75,14 @@ public class Main {
                 }
             }
         }
-        if(move){
-            if(type.contains("Drink")){
-                getOrder(map, "Appetizer", bill);
-            } else if (type.contains("Appetizer")) {
-                getOrder(map, "Entree", bill);
-            } else if (type.contains("Entree")) {
-                getOrder(map, "Dessert", bill);
-            }
+        if(type.contains("Drink")){
+            getOrder(map, "Appetizer", bill);
+        } else if (type.contains("Appetizer")) {
+            getOrder(map, "Entree", bill);
+        } else if (type.contains("Entree")) {
+            getOrder(map, "Dessert", bill);
         }
+
         return true;
     }
 

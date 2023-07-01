@@ -8,9 +8,9 @@ public class Menu {
     int keyCount = 1;
     public boolean mornCheck() throws StoreClosedException {
         Date a = new Date();
-        if(a.getHours() < 12 && a.getHours() > 11){
+        if((a.getHours() < 13) && (a.getHours() > 10)){
             return true;
-        } else if(a.getHours()>= 12 && a.getHours() < 23){
+        } else if(a.getHours()>= 13 && a.getHours() < 23){
             return false;
         } else{
             throw new StoreClosedException();
@@ -18,9 +18,9 @@ public class Menu {
 
     }
     public void start(){
-        fillMenu(menu);
+        fillMenu();
     }
-    private void fillMenu(HashMap menu){
+    private void fillMenu(){
         try{
             Scanner input = new Scanner(new File("src\\OutbackMenu.txt"));
             String type = "Drinks";
@@ -28,12 +28,15 @@ public class Menu {
             while(input.hasNext()){
                 line = input.nextLine();
                 String temp = line;
-                switch(temp.toLowerCase()){
-                    case "drinks": type="Drinks"; break;
-                    case "appetizers": type="Appetizers"; break;
-                    case "entrees": type="Entrees"; break;
-                    case "desserts": type="Desserts"; break;
-                    default: addItem(type, line); keyCount++;
+                switch (temp.toLowerCase()) {
+                    case "drinks" -> type = "Drinks";
+                    case "appetizers" -> type = "Appetizers";
+                    case "entrees" -> type = "Entrees";
+                    case "desserts" -> type = "Desserts";
+                    default -> {
+                        addItem(type, line);
+                        keyCount++;
+                    }
                 }
             }
 
@@ -46,43 +49,38 @@ public class Menu {
         return menu;
     }
 
-    public String getItemType(int i){
-        MenuItem temp = menu.get(i);
-        return temp.getType();
-    }
 
     public void addItem(String type, String line){
         int temp;
         String name;
         String cost;
-        switch(type){
-            case "Drinks":
+        switch (type) {
+            case "Drinks" -> {
                 temp = line.indexOf("$");
-                name = line.substring(0,temp).trim();
+                name = line.substring(0, temp).trim();
                 cost = line.substring(temp);
                 menu.put(keyCount, new Drink(name, cost));
-                break;
-            case "Appetizers":
+            }
+            case "Appetizers" -> {
                 temp = line.indexOf("$");
-                name = line.substring(0,temp).trim();
+                name = line.substring(0, temp).trim();
                 cost = line.substring(temp);
                 menu.put(keyCount, new Appetizer(name, cost));
-                break;
-            case "Entrees":
+            }
+            case "Entrees" -> {
                 temp = line.indexOf("$");
-                name = line.substring(0,temp).trim();
+                name = line.substring(0, temp).trim();
                 cost = line.substring(temp);
                 menu.put(keyCount, new Entree(name, cost));
-                break;
-            case "Desserts":
+            }
+            case "Desserts" -> {
                 temp = line.indexOf("$");
-                name = line.substring(0,temp).trim();
+                name = line.substring(0, temp).trim();
                 cost = line.substring(temp);
                 menu.put(keyCount, new Dessert(name, cost));
-                break;
-            default:
-
-
+            }
+            default -> {
+            }
         }
 
     }
