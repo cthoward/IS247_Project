@@ -2,10 +2,27 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.io.*;
-
+/**
+ * Created by Charlton Howard of 7/5/2023
+ * Menu class for Generating and running the menu
+ */
 public class Menu {
     private HashMap<Integer,MenuItem> menu = new HashMap<>();
-    int keyCount = 1;
+    private int keyCount = 1;
+
+    /**
+     * Returns menu as a HashMap
+     * @return menu
+     */
+    public HashMap getMenu(){
+        return menu;
+    }
+
+    /**
+     * Checks the time, returns whether it is morning. If store is closed, throws exception
+     * @return true if morning and store is open
+     * @throws StoreClosedException Store is closed
+     */
     public boolean mornCheck() throws StoreClosedException {
         Date a = new Date();
         if((a.getHours() < 13) && (a.getHours() > 10)){
@@ -17,9 +34,17 @@ public class Menu {
         }
 
     }
+
+    /**
+     * Runs private method fillMenu()
+     */
     public void start(){
         fillMenu();
     }
+
+    /**
+     * Fills HashMap menu from internal file
+     */
     private void fillMenu(){
         try{
             Scanner input = new Scanner(new File("src\\OutbackMenu.txt"));
@@ -45,11 +70,12 @@ public class Menu {
         }
     }
 
-    public HashMap getMenu(){
-        return menu;
-    }
 
-
+    /**
+     * Inserts item that extends MenuItem into HashMap of the correct class
+     * @param type type of class to insert
+     * @param line line from file to evaluate
+     */
     public void addItem(String type, String line){
         int temp;
         String name;
@@ -88,4 +114,7 @@ public class Menu {
 
 }
 
+/**
+ * Custom Exception if Store is closed
+ */
 class StoreClosedException extends Exception {}

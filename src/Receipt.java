@@ -2,16 +2,30 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-
+/**
+ * Created by Charlton Howard of 7/5/2023
+ * Receipt class for returning the bill
+ */
 public class Receipt {
     List<MenuItem> bill = new ArrayList<>();
     double total = 0;
+
+    /**
+     * Basic constructor
+     */
     public Receipt(){}
 
+    /**
+     * Adds MenuItem to bill ArrayList
+     * @param a MenuItem
+     */
     public void addItem(MenuItem a){
         bill.add(a);
     }
 
+    /**
+     * Prints Bill
+     */
     public void printBill(){
         System.out.println("----Bill----");
         consolidateBill();
@@ -42,7 +56,13 @@ public class Receipt {
         System.out.println("Tip(" + tip + "%): $" + tipCost);
         System.out.println("Final total: $" + Math.round((total + taxCost + tipCost)*100.0)/100.0);
     }
-    public int askTip() throws InvalidTipNumber{
+
+    /**
+     * Asks if user wants to tip
+     * @return tip percentage
+     * @throws InvalidTipNumber Invalid tip entered
+     */
+    private int askTip() throws InvalidTipNumber{
         int tip;
         Scanner input = new Scanner(System.in);
         try{
@@ -56,7 +76,10 @@ public class Receipt {
         return tip;
     }
 
-    public void consolidateBill(){
+    /**
+     * Merges similar items in ArrayList bill
+     */
+    private void consolidateBill(){
         for(int i = 0; i < bill.size();i++)
             for (int j = i + 1; j < bill.size(); j++)
                 if (bill.get(i).getName().equalsIgnoreCase(bill.get(j).getName())) {
@@ -65,6 +88,10 @@ public class Receipt {
                 }
     }
 }
+
+/**
+ * Custom Exception for an invalid tip entry
+ */
 class InvalidTipNumber extends Exception{
 
 }
