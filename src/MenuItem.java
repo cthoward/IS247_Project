@@ -16,8 +16,8 @@ public class MenuItem{
         return cost;
     }
     public double getCostValue(){
-        String temp = cost.substring(1);
-        return Double.valueOf(temp);
+        String temp = getCost().substring(1);
+        return Double.parseDouble(temp);
     }
     public String getType(){
         return type;
