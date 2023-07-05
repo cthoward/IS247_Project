@@ -1,0 +1,56 @@
+Drinks
+Water	$1.00
+Coca-Cola®	$3.35
+Coke	$3.16
+Diet Coke	$3.16
+Coca-Cola® Cherry	$3.40
+Coca-Cola® Zero™	$3.33
+Coke Zero Sugar	$3.15
+Sprite	$3.16
+Barq’s® Root Beer	$3.42
+Dr. Pepper	$3.08
+Mr. Pibb®	$3.28
+Sweet Iced Tea	$3.07
+Hi-C® Pink Lemonade	$3.35
+Strawberry Lemonade	$3.19
+Aussie Palmer	$3.51
+Lemonade	$3.21
+Mello Yellow®	$3.47
+Fanta® Orange	$3.47
+Strawberry Kiwi Lemonade	$3.19
+Sweetened Iced Tea	$3.05
+Unsweetened Iced Tea	$3.39
+Hi-C® Fruit Punch	$3.40
+Hi-C	$3.14
+Raspberry Iced Tea	$3.40
+Appetizers
+Bloomin’ Onion	$9.51
+Steakhouse Mac & Cheese Bites	$7.34
+Steakhouse Quesadillas	$13.27
+Crab Cakes Appetizer	$11.11
+Crispy Brussel Sprouts	$9.62
+Crab Cakes	$12.09
+Volcano Shrimp	$10.73
+Steakhouse Nachos	$14.75
+Boneless Chicken Wings	$12.35
+Entrees
+Ayers Rock Strip 12 oz.	$25.50
+Victoria’s Filet® Mignon & Lobster	$30.15
+Sirloin & Grilled Shrimp on the Barbie	$19.17
+Sirloin & Coconut Shrimp	$19.23
+Slow-Roasted Prime Rib	$23.71
+Bone-In Natural Cut Ribeye 22 oz.	$30.13
+Surf & Turf: Sirloin & Choice of Shrimp	$19.77
+Surf & Turf: Sirloin & Shrimp	$18.82
+Melbourne Porterhouse 20 oz.	$30.09
+Surf & Turf: Filet Mignon & Lobster	$29.80
+Shareable Sirloin	$36.00
+Steak & Frites	$27.38
+Desserts
+Chocolate Fondue Flight	$11.81
+Butter Cake	$7.79
+Salted Caramel Topped Cheesecake	$8.96
+Chocolate Thunder from Down Under	$9.13
+Caramel Cookie Skillet	$6.16
+Triple-Layer Carrot Cake	$8.11
+New York-Style Cheesecake	$8.13
