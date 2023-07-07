@@ -62,9 +62,15 @@ public class Main {
     public static boolean getOrder(HashMap map, String type, Receipt bill){
 
         int num = 0;
+        boolean first = false;
+        int firstNum = 0;
         System.out.println(type + " Menu: ");
         for(int i = 1; i < map.size();i++){
             if(map.get(i).getClass().toString().contains(type)){
+                if(!first) {
+                    firstNum = i;
+                    first=true;
+                }
                 System.out.println(i + "." + map.get(i));
                 num = i;
             }
@@ -72,7 +78,7 @@ public class Main {
 
         boolean move = false;
         while(!move){
-            String order = requestOrder(num);
+            String order = requestOrder(num, firstNum);
             //Check if user is done with that menu type
             if(order.equalsIgnoreCase("done")){
                 move = true;
@@ -113,18 +119,19 @@ public class Main {
     /**
      * Gets user input in determining order and returns the order
      * @param num max valid value
+     * @param firstNum max valid value
      * @return done, order number, or invalid
      */
-    public static String requestOrder(int num){
+    public static String requestOrder(int num, int firstNum){
         Scanner input = new Scanner(System.in);
         System.out.println("What would you like to order? ");
-        System.out.println("Please enter the number shown next to the item to place your order or \ntype \"done\" to move on to the next menu:");
+        System.out.println("Please enter the number shown next to the item to place your order(between " + firstNum + " and " + num + ") or \ntype \"done\" to move on to the next menu:");
         String temp = input.next();
         String order;
         if(temp.equalsIgnoreCase("done"))
         {
             return "done";
-        }else if(Integer.parseInt(temp)>0 && Integer.parseInt(temp) <= num){
+        }else if(Integer.parseInt(temp)>=firstNum && Integer.parseInt(temp) <= num){
             System.out.println("And how many would you like of that item?");
             try{
                 order =Integer.parseInt(temp) + " " + input.nextInt();
